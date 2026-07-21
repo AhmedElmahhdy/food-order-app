@@ -3,7 +3,7 @@ import {z} from "zod"
 import * as path from "node:path";
 
 // important to find path .env config path by default is './.env' we should to resolve it
-config({path: path.resolve(import.meta.dirname,'../../../.env')})
+config({path: path.resolve(__dirname,'../../../.env')})
 
 
 const schema = z.object({
@@ -15,7 +15,12 @@ const schema = z.object({
     DB_NAME:z.string(),
     DB_POOL_MAX:z.string(),
     DB_MIGRATIONS_DIRECTORY:z.string(),
-    DB_MIGRATIONS_EXTENSION:z.string()
+    DB_MIGRATIONS_EXTENSION:z.string(),
+    ACCESS_SECRET:z.string(),
+    REFRESH_SECRET:z.string(),
+    ACCESS_EXPIRES_IN:z.string(),
+    REFRESH_EXPIRES_IN:z.string(),
+
 
 })
 
@@ -30,7 +35,14 @@ export const env = {
         pass:parsed.DB_PASS,
         name:parsed.DB_NAME,
         pool_max:Number(parsed.DB_POOL_MAX),
-        migrationsDirectory:path.resolve(import.meta.dirname,'../../../', parsed.DB_MIGRATIONS_DIRECTORY),
+        migrationsDirectory:path.resolve(__dirname,'../../../', parsed.DB_MIGRATIONS_DIRECTORY),
         migrationsExtension:parsed.DB_MIGRATIONS_EXTENSION,
+
+    },
+    jwt:{
+        accessSecret:parsed.ACCESS_SECRET,
+        accessExpiersIn:parsed.ACCESS_EXPIRES_IN,
+        refreshSecret:parsed.REFRESH_SECRET,
+        refreshExpiresIN:parsed.REFRESH_EXPIRES_IN,
     }
 }

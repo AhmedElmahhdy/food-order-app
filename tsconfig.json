@@ -10,9 +10,9 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "noImplicitAny": true,
-
-    "allowImportingTsExtensions": true,
-    "noEmit": true
+    "noEmit": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
 
   },
   "include": ["src"],
