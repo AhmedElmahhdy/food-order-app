@@ -16,4 +16,6 @@ todo
 /.idea
 /.junie
 
+dist
+
 .vscode/*
