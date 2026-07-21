@@ -1,4 +1,4 @@
-import {env} from "../config/env.ts"
+import {env} from "../config/env"
 import type {Knex} from "knex"
 
 const config: Knex.Config = {

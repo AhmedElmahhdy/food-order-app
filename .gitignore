@@ -12,6 +12,10 @@ yarn-error.log*
 todo
 .junie
 .idea
+/dist
+/.idea
+/.junie
 
+dist
 
 .vscode/*
